@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Home from "./Home";
+import Graph from "./Graph";
 
 class App extends Component {
     render() {
         return (
-            <div>Test<Home /></div>
+            <div><Graph /></div>
         );
     }
 }
