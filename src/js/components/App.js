@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Graph from "./Graph";
+import Config from "./Config";
 
 class App extends Component {
     render() {
         return (
-            <div><Graph /></div>
+            <div>
+                <div><Graph /></div>
+                <div><Config onSent={doFetchValues}/></div>
+            </div>
         );
     }
 }
