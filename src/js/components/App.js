@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Graph from "./Graph";
+import Config from "./Config";
 import { Tabs, Tab, TabList, Panel, PanelList } from 'react-tabtab';
 import * as customStyle from 'react-tabtab/lib/themes/material-design';
 
