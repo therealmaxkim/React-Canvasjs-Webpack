@@ -86,25 +86,18 @@ class Graph extends Component {
 		this.setState({intervalId: intervalId});
 	}
 
-	grabReadings(type) {
+	async grabReadings(type) {
 		//fetch api call
-
+		const response = await fetch('/api/readings/'+type, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        });
 		//filter depending on the type of graph, select data points
-
-		//return the new readings
-		var readings = [
-			{ x: new Date('2020-03-04T21:12:55.618Z'), y: 10 },
-			{ x: new Date('2020-03-04T21:13:55.618Z'), y: 13 },
-			{ x: new Date('2020-03-04T21:14:55.618Z'), y: 18 },
-			{ x: new Date('2020-03-04T21:15:54.618Z'), y: 20 },
-			{ x: new Date('2020-03-04T21:16:55.618Z'), y: 17 },
-			{ x: new Date('2020-03-04T21:17:56.618Z'), y: 10 },
-			{ x: new Date('2020-03-04T21:18:55.618Z'), y: 13 },
-			{ x: new Date('2020-03-04T21:19:53.618Z'), y: 18 },
-			{ x: new Date('2020-03-04T21:20:55.618Z'), y: 20 },
-			{ x: new Date('2020-03-04T21:21:55.618Z'), y: 17 }
-		];
-		return readings;
+		if (response.status === 200) {
+            return response.body;
+        } else {
+			return {};
+		}
 	}
 
 	AddMinutesToDate(date, minutes) {
